@@ -1,13 +1,23 @@
 package fi.taponen.bookstore.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
+	
 	private String title, author, isbn;
 	private double price;
 	private int year;
 	
 	public Book() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Book(String title, String author, String isbn, double price, int year) {
@@ -17,6 +27,29 @@ public class Book {
 		this.isbn = isbn;
 		this.price = price;
 		this.year = year;
+	}
+	
+
+	public Book(String title, String author, String isbn, int year) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.year = year;
+	}
+	
+	public Book(String title, String author) {
+		super();
+		this.title = title;
+		this.author = author;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
