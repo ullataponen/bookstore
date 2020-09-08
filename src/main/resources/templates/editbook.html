@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
-<body class="container">
-	<h1 th:text="${title}">Default Title</h1>
+<body>
 	<nav th:replace="fragments :: navigation"></nav>
-	<form th:object="${book}" th:action="@{../save}" action="#" method="post">
+	<div class="container">
+	<h1 th:text="${title}">Default Title</h1>
+	<form style="max-width:580px" th:object="${book}" th:action="@{../save}" action="#" method="post">
+	<div class="form-group">
 		<input type="hidden" th:field="*{id}" class="form-control"/>
-		<input type="text" th:field="*{title}"/>
-		<input type="text" th:field="*{author}"/>
-		<input type="text" th:field="*{isbn}"/>
-		<input type="text" th:field="*{price}"/>
-		<input type="text" th:field="*{year}"/>
-		<input type="submit" class="btn btn-success" value="Save"></input>
+	</div>
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input class="form-control" type="text" id="title" th:field="*{title}"/>
+	</div>
+	<div class="form-group">
+		<label for="author">Author</label>
+		<input class="form-control" type="text" id="author" th:field="*{author}"/>
+	</div>
+	<div class="form-group">
+		<label for="isbn">ISBN</label>
+		<input class="form-control" type="text" id="isbn" th:field="*{isbn}"/>
+	</div>
+	<div class="form-group">
+		<label for="price">Price</label>
+		<input class="form-control" type="text" id="price" th:field="*{price}"/>
+	</div>
+	<div class="form-group">
+		<label for="year">Year</label>
+		<input class="form-control" type="text" id="year" th:field="*{year}"/>
+	</div>
+	
+		<input type="submit" class="btn btn-success" value="Save" />
 	</form>
+	</div>
+	
 </body>
 </html>

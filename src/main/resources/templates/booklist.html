@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
-<body class="container">
-	<h1 th:text="${title}">Default Title</h1>
+<body>
 	<nav th:replace="fragments :: navigation"></nav>
-<table>
+	<div class="container">
+	<h1 th:text="${title}">Default Title</h1>
+<table class="table table-striped">
 	 <thead>
 		<tr>
 		<th>Title</th>
 		<th>Author</th>
 		<th>ISBN</th>
-		<th>Price (€)</th>
+		<th>Price</th>
 		<th>Year</th>
 		<th></th>
 		<th></th>
@@ -23,11 +24,13 @@
 			<td th:text="${book.isbn}"></td>
 			<td th:text="${book.price}"></td>
 			<td th:text="${book.year}"></td>
-			<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
-			<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+			<td><a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+			<td><a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
 		</tr>
 	</tbody>
 </table>
-<a href="/addbook">Add a new book</a>
-</body>
+<a class="btn btn-success" href="/addbook">Add a new book</a>
+	
+	</div>
+	</body>
 </html>

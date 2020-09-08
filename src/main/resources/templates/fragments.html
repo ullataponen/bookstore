@@ -11,9 +11,14 @@
 </head>
 <body>
 
-<nav th:fragment="navigation">
-<a href="/booklist">List</a>
-<a href="/addbook">Add</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark" th:fragment="navigation">
+<a class="navbar-brand" href="/">Book App</a>
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav">
+        <a class="nav-link text-white" href="/booklist">List</a>
+        <a class="nav-link text-white" href="/addbook">Add</a>
+	</div>
+  </div>
 </nav>
 </body>
 </html>
