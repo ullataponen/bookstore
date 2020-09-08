@@ -22,10 +22,10 @@ public class BookstoreApplication {
 			repository.save(new Book("It", "Stephen King", "1234156-45", 20.00, 1982));
 			repository.save(new Book("Lord of the Rings", "J.R.R. Tolkien", "3146878-45", 35.00, 1971));
 			
-			/*System.out.println("fetch all books");
+			System.out.println("fetch all books");
 			for (Book book : repository.findAll()) {
 				System.out.println(book.toString());
-			}*/
+			}
 		};
 	}
 
