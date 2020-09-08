@@ -19,6 +19,7 @@ public class BookController {
 	//Get all
 	@GetMapping(value={"/", "/booklist"})
 	public String bookList(Model model) {
+		model.addAttribute("title", "Book List");
 		model.addAttribute("books", repository.findAll());
 		return "booklist";
 	}
@@ -26,6 +27,7 @@ public class BookController {
 	//Add new
 	@GetMapping(value="addbook")
 	public String addBook(Model model) {
+		model.addAttribute("title", "Add Book");
 		model.addAttribute("book", new Book());
 		return "addbook";
 	}
@@ -46,6 +48,7 @@ public class BookController {
 	//Edit
 	@GetMapping(value = "/edit/{id}")
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
+		model.addAttribute("title", "Edit Book");
 		model.addAttribute("book", repository.findById(bookId));
 		return "editbook";
 	}

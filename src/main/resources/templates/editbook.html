@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<h1>Edit book</h1>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+	<h1 th:text="${title}">Default Title</h1>
+	<nav th:replace="fragments :: navigation"></nav>
 	<form th:object="${book}" th:action="@{../save}" action="#" method="post">
 		<input type="hidden" th:field="*{id}" class="form-control"/>
 		<input type="text" th:field="*{title}"/>

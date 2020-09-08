@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<h1>Booklist</h1>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+	<h1 th:text="${title}">Default Title</h1>
+	<nav th:replace="fragments :: navigation"></nav>
 <table>
 	 <thead>
 		<tr>
 		<th>Title</th>
 		<th>Author</th>
 		<th>ISBN</th>
-		<th>Price (â‚¬)</th>
+		<th>Price (€)</th>
 		<th>Year</th>
 		<th></th>
 		<th></th>
