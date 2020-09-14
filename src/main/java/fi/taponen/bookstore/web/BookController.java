@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import fi.taponen.bookstore.domain.Book;
 import fi.taponen.bookstore.domain.BookRepository;
+import fi.taponen.bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
 	
 	@Autowired
 	private BookRepository repository;
+	
+	@Autowired
+	private CategoryRepository crepository;
 		
 	//Get all
 	@GetMapping(value={"/", "/booklist"})
@@ -29,9 +33,11 @@ public class BookController {
 	public String addBook(Model model) {
 		model.addAttribute("title", "Add Book");
 		model.addAttribute("book", new Book());
+		model.addAttribute("categories", crepository.findAll());
 		return "addbook";
 	}
 	
+	//Save new or edited book
 	@PostMapping(value="/save")
 	public String save(Book book) {
 		repository.save(book);
