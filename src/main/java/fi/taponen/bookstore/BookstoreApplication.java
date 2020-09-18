@@ -16,7 +16,7 @@ public class BookstoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
-	
+	/*
 	@Bean
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository){
 		return(args)-> {
@@ -34,5 +34,5 @@ public class BookstoreApplication {
 			}
 		};
 	}
-
+*/
 }

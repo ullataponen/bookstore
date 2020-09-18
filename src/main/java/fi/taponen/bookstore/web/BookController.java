@@ -25,6 +25,7 @@ public class BookController {
 	public String bookList(Model model) {
 		model.addAttribute("title", "Book List");
 		model.addAttribute("books", repository.findAll());
+		model.addAttribute("categories", crepository.findAll());
 		return "booklist";
 	}
 	
@@ -56,6 +57,7 @@ public class BookController {
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
 		model.addAttribute("title", "Edit Book");
 		model.addAttribute("book", repository.findById(bookId));
+		model.addAttribute("categories", crepository.findAll());
 		return "editbook";
 	}
 }

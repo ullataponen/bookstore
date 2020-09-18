@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class Book {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // for MariaDB; H2 = strategy=GenerationType.AUTO
 	private long id;
 	
 	private String title, author, isbn;
@@ -94,6 +94,7 @@ public class Book {
 
 	public double getPrice() {
 		return price;
+		
 	}
 
 	public void setPrice(double price) {
