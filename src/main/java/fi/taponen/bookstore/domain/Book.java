@@ -7,19 +7,30 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Entity
 public class Book {
 	
+	@NotNull
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) // for MariaDB; H2 = strategy=GenerationType.AUTO
 	private long id;
 	
-	private String title, author, isbn;
+	@Size(min=1, max=250)
+	private String title;
+	
+	@Size(min=2, max=250)
+	private String author;
+	private String isbn;
 	private double price;
 	private int year;
 	
 	@ManyToOne
 	@JoinColumn(name="categoryId")
+	
+	@NotNull
 	private Category category;
 	
 	public Book() {
