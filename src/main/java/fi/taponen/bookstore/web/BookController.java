@@ -36,6 +36,14 @@ public class BookController {
 		return "booklist";
 	}
 	
+	//Log in
+	@GetMapping(value ="/login")
+	public String logIn(Model model) {
+		model.addAttribute("title", "Log In");
+		return "login";
+	}
+
+	
 	//Add new
 	@GetMapping(value="addbook")
 	public String addBook(Model model) {

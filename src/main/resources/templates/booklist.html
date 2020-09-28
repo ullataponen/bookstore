@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="fragments :: head"></head>
 <body>
 	<nav th:replace="fragments :: navigation"></nav>
 	<div class="container">
 	<h1 th:text="${title}">Default Title</h1>
+	<p th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</p>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Log Out" class="btn btn-danger"  style="float:right; margin:10px 0"/>
+	</form>
 <table class="table table-striped">
 	 <thead>
 		<tr>
@@ -14,7 +18,7 @@
 		<th>Price</th>
 		<th>Year</th>
 		<th>Category</th>
-		<th></th>
+		<th sec:authorize="hasRole('ADMIN')"></th>
 		<th></th>
 		</tr>
 	 </thead>
@@ -26,7 +30,7 @@
 			<td th:text="${book.price}"></td>
 			<td th:text="${book.year}"></td>
 			<td th:text="${book.category.name}"></td>	
-			<td><a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+			<td sec:authorize="hasRole('ADMIN')"><a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
 			<td><a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
 		</tr>
 	</tbody>
