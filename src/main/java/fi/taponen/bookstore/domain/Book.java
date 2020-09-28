@@ -6,9 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Book {
@@ -28,9 +29,10 @@ public class Book {
 	private int year;
 	
 	@ManyToOne
+	@JsonIgnore
+	//@JsonManagedReference
 	@JoinColumn(name="categoryId")
-	
-	@NotNull
+	//@NotNull
 	private Category category;
 	
 	public Book() {

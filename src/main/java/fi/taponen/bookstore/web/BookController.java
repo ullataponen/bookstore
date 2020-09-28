@@ -1,5 +1,8 @@
 package fi.taponen.bookstore.web;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.taponen.bookstore.domain.Book;
 import fi.taponen.bookstore.domain.BookRepository;
@@ -66,5 +70,17 @@ public class BookController {
 		model.addAttribute("book", repository.findById(bookId));
 		model.addAttribute("categories", crepository.findAll());
 		return "editbook";
+	}
+	
+	//Get all with REST
+	@GetMapping("/books")
+	public @ResponseBody List<Book> bookListRest() {
+		return (List<Book>) repository.findAll();
+	}
+	
+	//find one by id with REST
+	@GetMapping(value = "/books/{id}")
+	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookId) {
+		return repository.findById(bookId);
 	}
 }
