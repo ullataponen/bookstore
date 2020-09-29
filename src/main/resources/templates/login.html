@@ -2,12 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
 <body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark" th:fragment="navigation">
+	<a class="navbar-brand" href="/">Book App</a>
+	</nav>
 	<div class="container">
 	<h1 th:text="${title}">Default Title</h1>
-		<div th:if="${param.error}" style="margin: 20px 0">
+		<div class="alert alert-danger" th:if="${param.error}" style="margin: 20px 0; max-width:580px">
 			Invalid user name and/or password.
 		</div>
-		<div th:if="${param.logout}" style="margin: 20px 0">
+		<div class="alert alert-success" th:if="${param.logout}" style="margin: 20px 0; max-width:580px">
 			You have been successfully logged out.
 		</div>
 		<form style="max-width:580px" th:action="@{/login}" method="post">
