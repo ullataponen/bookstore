@@ -22,7 +22,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 	
-	/*
+	
 	@Bean
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository){
 		return(args)-> {
@@ -48,6 +48,6 @@ public class BookstoreApplication {
 			}
 			
 		};
-	}*/
+	}
 
 }
