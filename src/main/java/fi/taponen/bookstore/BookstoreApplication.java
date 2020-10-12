@@ -22,7 +22,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 	
-	
+	/*
 	@Bean
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository){
 		return(args)-> {
@@ -37,6 +37,7 @@ public class BookstoreApplication {
 			System.out.println("Save a couple of categories");
 			crepository.save(new Category("horror"));
 			crepository.save(new Category("fantasy"));
+			crepository.save(new Category("sci-fi"));
 		
 			System.out.println("Save a couple of books");
 			repository.save(new Book("It", "Stephen King", "1234156-45", 20.00, 1982, crepository.findByName("horror").get(0)));
@@ -48,6 +49,6 @@ public class BookstoreApplication {
 			}
 			
 		};
-	}
+	}*/
 
 }
